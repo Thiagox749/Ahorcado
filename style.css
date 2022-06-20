@@ -1,0 +1,112 @@
+body{
+    background-color: #E5E5E5
+}
+.header{
+    border: red solid;
+    padding: 10px;
+}
+.conteiner-medio{
+    border: solid pink;
+    height: 600px;
+}
+.titulo{
+    margin: 0;
+    text-align: center;
+}
+.boton-principal{
+    display: block;
+    position: relative;
+    top: 25%;
+    width: 20%;
+    height: 20%;
+    margin: 0 auto;
+    font-size: 25px;
+}
+.boton-secundario{
+    display: block;
+    position: relative;
+    top: 30%;
+    width: 20%;
+    height: 20%;
+    margin: 0 auto;
+    font-size: 25px;
+}
+.boton{
+    border-radius: 24px;
+    background: #0A3871;
+    color: white;
+    transition: 200ms;
+}
+.boton:hover{
+    opacity: 60%;
+}
+.piePagina{
+    text-align: center;
+    padding: 15px;
+    border: solid black;
+}
+#entrada-palabra{
+    position: relative;
+    top: 20%;
+    height: 30%;
+    width: 30%;
+    display: block;
+    resize: none;
+    margin: 0 auto;
+    background: #E5E5E5;
+    padding-top: 50px;
+    text-align: center;
+    font-size: 200%;
+    color: #0A3871;
+    border-radius: 12px;
+    border: none;
+}
+.advertencia{
+    position: relative;
+    top: 21%;
+    text-align: center;
+    margin: 8px auto 0;
+    color: #495057
+}
+#boton-guardar, #boton-atras{
+    position: relative;
+    width: 14%;
+    height: 10%;
+    font-size: 15px;
+    top: 24%;
+    left: 35%;
+    margin-left: 10px;
+    border-radius: 24px;
+    color: white;
+    background: #0A3871;
+}
+.dibujo{
+    height: 60%;
+    width: 30%;
+    border: solid blue;
+    display: block;
+    margin: 0 auto;
+}
+.palabra-oculta{
+    height: 15%;
+    border: solid darkgreen;
+    text-align: center;
+    margin: auto;
+}
+.letra{
+    display: inline-block;
+    padding: 3px;
+    font-size: 50px;
+    margin: 0 20px;
+    text-align: center;
+    height: 80%;
+}
+.letra p{
+    margin: 0 auto;
+    display: none;
+}
+.linea{
+    display: block;
+    position: relative;
+    top: 55px;
+}
