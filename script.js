@@ -13,42 +13,50 @@ pincel.lineTo(220,45);
 pincel.stroke();
 
 var cuerpo = document.querySelector("body")
+var boton = document.querySelector("#boton-nuevoJuego");
+var palabraAleatoria;
+boton.onclick = empezarJuego;
 
-cuerpo.addEventListener("keydown", function(event){
-    console.log("Tecla presionada, " + event.key);
-    if( event.key == "m"){
-        dibujarLineasPalabra(palabraAleatoria.toUpperCase(), event.key);
-    }
-    if (event.key == "e"){
-        colocarLetra(event.key);
-    }
-})
 
 var listaPalabras= ["hola","jorge","pedro","piña","golpe","nahuelon"];
-var palabraAleatoria= listaPalabras[Math.round(Math.random()*(listaPalabras.length-1))];
+
 
 function dibujarLineasPalabra(palabraAleatoria){
-    var contenedor = document.querySelector(".palabra-oculta");
+    var contenedorLetra = document.querySelector(".palabra-oculta");
     for(i = 0; i < palabraAleatoria.length ; i++){
         var divHijo = document.createElement("div");
-        var lineaHijo = document.createElement("img");
         var pHijo = document.createElement("p");
-        lineaHijo.src = "img/linea.png";
-        lineaHijo.classList.add("linea");
+        var lineaHijo = document.createElement("img");
         divHijo.classList.add("letra");
-        pHijo.textContent = palabraAleatoria[i];
+        lineaHijo.classList.add("lineaLetra");
+        lineaHijo.src = "img/linea.png";
         pHijo.id = "letra" + i;
+        pHijo.textContent = palabraAleatoria[i].toUpperCase();
         divHijo.appendChild(lineaHijo);
         divHijo.appendChild(pHijo);
-        contenedor.appendChild(divHijo);
+        contenedorLetra.appendChild(divHijo);
     }
 }
 function colocarLetra(letraIngresada){
     for(i = 0; i < palabraAleatoria.length; i++){
-        letraOculta = document.querySelector("#letra"+i)
-        letraComparar = letraOculta.innerHtml;
+        var letraOculta = document.querySelector("#letra"+i);
+        var letraComparar = letraOculta.textContent;
+        console.log(letraIngresada);
+        console.log(letraOculta);
         if (letraIngresada.toUpperCase() == letraComparar){
-            letraOculta.style.display = "show";
+            letraOculta.style.visibility= 'visible';
         }
     }
+}
+function empezarJuego(){
+    palabraAleatoria= listaPalabras[Math.round(Math.random()*(listaPalabras.length-1))];
+    dibujarLineasPalabra(palabraAleatoria);
+    cuerpo.addEventListener("keydown", function(event){
+        console.log("Tecla presionada, " + event.key);
+        if( event.key == "m"){
+            dibujarLineasPalabra(palabraAleatoria.toUpperCase(), event.key);
+        }else{
+            colocarLetra(event.key);
+        }
+    })
 }

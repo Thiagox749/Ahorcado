@@ -20,7 +20,7 @@ body{
     width: 20%;
     height: 20%;
     margin: 0 auto;
-    font-size: 25px;
+    font-size: 18px;
 }
 .boton-secundario{
     display: block;
@@ -29,7 +29,7 @@ body{
     width: 20%;
     height: 20%;
     margin: 0 auto;
-    font-size: 25px;
+    font-size: 18px;
 }
 .boton{
     border-radius: 24px;
@@ -72,7 +72,7 @@ body{
     position: relative;
     width: 14%;
     height: 10%;
-    font-size: 15px;
+    font-size: 18px;
     top: 24%;
     left: 35%;
     margin-left: 10px;
@@ -103,10 +103,28 @@ body{
 }
 .letra p{
     margin: 0 auto;
-    display: none;
+    visibility: hidden;
 }
-.linea{
+.lineaLetra{
     display: block;
     position: relative;
     top: 55px;
+}
+.letras-usadas{
+    border: solid brown;
+    height: 21.5%;
+    display: flex;
+    align-items: center;
+}
+#boton-nuevoJuego{
+    height: 30%;
+    width: 15%;
+    font-size: 18px;
+    margin: 0 auto 0 34.5%;
+}
+#boton-desistir{
+    height: 30%;
+    width: 15%;
+    font-size: 18px;
+    margin: 0 34.5% 0 auto;
 }
