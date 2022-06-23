@@ -103,7 +103,6 @@ body{
 }
 .letra p{
     margin: 0 auto;
-    visibility: hidden;
 }
 .lineaLetra{
     display: block;
