@@ -1,9 +1,18 @@
 body{
     background-color: #E5E5E5
 }
-.header{
+header{
     border: red solid;
-    padding: 10px;
+    padding: 5px;
+    overflow: hidden;
+}
+header img{
+    float: left;
+    width: 6%;
+}
+#avisoMensaje{
+    text-align: center;
+    margin: 0 200px;
 }
 .conteiner-medio{
     border: solid pink;
@@ -40,7 +49,7 @@ body{
 .boton:hover{
     opacity: 60%;
 }
-.piePagina{
+footer{
     text-align: center;
     padding: 15px;
     border: solid black;
@@ -82,10 +91,14 @@ body{
 }
 .dibujo{
     height: 60%;
-    width: 30%;
+    width: 35%;
     border: solid blue;
     display: block;
     margin: 0 auto;
+}
+.mensajeAviso{
+    float:left;
+    border: black solid;
 }
 .palabra-oculta{
     height: 15%;
@@ -121,9 +134,17 @@ body{
     font-size: 18px;
     margin: 0 auto 0 34.5%;
 }
+
 #boton-desistir{
     height: 30%;
     width: 15%;
     font-size: 18px;
     margin: 0 34.5% 0 auto;
+}
+
+#boton-nuevoJuego:disabled{
+    opacity: 60%;
+}
+#boton-desistir:disabled{
+    opacity: 60%;
 }
