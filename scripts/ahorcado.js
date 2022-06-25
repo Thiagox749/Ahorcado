@@ -1,3 +1,8 @@
+function añadirPalabra(){
+    for(i=0;i<localStorage.length;i++){
+        listaPalabras.push(localStorage.key(i));
+    }
+}
 function empezarJuego(){
     palabraAleatoria= listaPalabras[Math.floor(Math.random()*(listaPalabras.length-1))];
     botonJugar.disabled = true;
@@ -119,7 +124,6 @@ function comprobarVictoria(){
     botonRendirse.disabled= true;
 }
 
-
 let pantalla= document.querySelector("canvas");
 let pincel= pantalla.getContext("2d")
 pincel.fillStyle = "blue"
@@ -147,6 +151,8 @@ var avisoFinal = document.querySelector("#avisoMensaje");
 var cuerpo = document.querySelector("body")
 var palabraAleatoria;
 var intentos;
-var listaPalabras= ["hola","jorge","pedro","piña","golpe","nahuelon","agua","salto","blanco","negro","ninja","magia","yana"];
-
+var listaPalabras= ["hola"];
+if (localStorage.length > 0){
+    añadirPalabra();
+}
 empezarJuego();

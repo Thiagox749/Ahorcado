@@ -49,6 +49,9 @@ header img{
 .boton:hover{
     opacity: 60%;
 }
+.boton:disabled{
+    opacity: 60%;
+}
 footer{
     text-align: center;
     padding: 15px;
@@ -69,6 +72,9 @@ footer{
     color: #0A3871;
     border-radius: 12px;
     border: none;
+}
+#entrada-palabra:focus{
+    outline: none;
 }
 .advertencia{
     position: relative;
@@ -140,11 +146,4 @@ footer{
     width: 15%;
     font-size: 18px;
     margin: 0 34.5% 0 auto;
-}
-
-#boton-nuevoJuego:disabled{
-    opacity: 60%;
-}
-#boton-desistir:disabled{
-    opacity: 60%;
 }
