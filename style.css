@@ -7,18 +7,21 @@ header{
 }
 header img{
     float: left;
-    width: 6%;
+    width: 7%;
 }
 #avisoMensaje{
     text-align: center;
     margin: 0 200px;
+    font-size: 2em;
+}
+.titulo{
+    margin: 0 auto;
+    text-align: center;
+    font-size: 3em;
+    width: 30%;
 }
 .conteiner-medio{
     height: 40em;
-}
-.titulo{
-    margin: 0;
-    text-align: center;
 }
 .boton-principal{
     display: block;

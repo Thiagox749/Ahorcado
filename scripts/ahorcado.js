@@ -4,7 +4,7 @@ function añadirPalabra(){
     }
 }
 function empezarJuego(){
-    palabraAleatoria= listaPalabras[Math.floor(Math.random()*(listaPalabras.length-1))];
+    eludirPalabrasJugadas();
     botonJugar.disabled = true;
     botonRendirse.disabled = false;
     avisoFinal.textContent ="";
@@ -96,6 +96,16 @@ function mostrarLetraIntentada(letra){
 function validarEntrada(letra){
     return (letra.length== 1 && pattern.test(letra));
 }
+function eludirPalabrasJugadas(){
+    if (palabrasJugadas.length == listaPalabras.length){
+        palabrasJugadas= [];
+    }
+    palabraAleatoria= listaPalabras[Math.floor(Math.random()*(listaPalabras.length))];
+    while (palabrasJugadas.includes(palabraAleatoria)){
+        palabraAleatoria= listaPalabras[Math.floor(Math.random()*(listaPalabras.length))];
+    }
+    palabrasJugadas.push(palabraAleatoria);
+}
 function comprobarAcierto(event){
     if (validarEntrada(event.key) && mostrarLetraIntentada(event.key.toUpperCase())){
         let acierto = false;
@@ -167,6 +177,7 @@ botonRendirse.addEventListener("click",function(){
 var avisoFinal = document.querySelector("#avisoMensaje");
 var cuerpo = document.querySelector("body");
 var letrasIntentadas= document.querySelector(".letras-usadas");
+var palabrasJugadas= [];
 var palabraAleatoria;
 var intentos;
 var listaPalabras= ["HTML","JAVA","PYTHON","ORACLE","HEADER","FOOTER","MAIN","DOCUMENT","CLASS","FUNCTION"];
