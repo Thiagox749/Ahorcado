@@ -1,6 +1,6 @@
 function añadirPalabra(){
     for(i=0;i<localStorage.length;i++){
-        listaPalabras.push(localStorage.key(i));
+        listaPalabras.push(localStorage.key(i).toUpperCase());
     }
 }
 function empezarJuego(){
@@ -10,8 +10,9 @@ function empezarJuego(){
     avisoFinal.textContent ="";
     pincel.clearRect(204,44,32,72);
     intentos=6;
+    letrasIntentadas.textContent="";
     dibujarLineasPalabra(palabraAleatoria);
-    cuerpo.onkeydown = comprobarLetra;
+    cuerpo.onkeydown = comprobarAcierto;
 }
 function rendirse(){
     avisoFinal.textContent = `Fin del juego, la palabra era ${palabraAleatoria}`;
@@ -83,22 +84,38 @@ function mostrarPalabra(){
         letraOculta.style.visibility= 'visible';
     }
 }
-function comprobarLetra(event){
-    let acierto = false;
-    for(i = 0; i < palabraAleatoria.length; i++){
-        let letraOculta = document.querySelector("#letra"+i);
-        let letraComparar = letraOculta.textContent;
-        if (event.key.toUpperCase() == letraComparar){
-            letraOculta.style.visibility= 'visible';
-            acierto= true;
-        }
+function mostrarLetraIntentada(letra){
+    let contenido =letrasIntentadas.textContent;
+    if (contenido.includes(letra)){
+        return false
+    }else{
+        letrasIntentadas.textContent+= letra;
+        return true;
     }
-    if (!acierto){
-        if (comprobarDerrota()){
-            return;
+}
+function validarEntrada(letra){
+    return (letra.length== 1 && pattern.test(letra));
+}
+function comprobarAcierto(event){
+    if (validarEntrada(event.key) && mostrarLetraIntentada(event.key.toUpperCase())){
+        let acierto = false;
+        for(i = 0; i < palabraAleatoria.length; i++){
+            let letraOculta = document.querySelector("#letra"+i);
+            let letraComparar = letraOculta.textContent;
+            if (event.key.toUpperCase() == letraComparar){
+                letraOculta.style.visibility= 'visible';
+                acierto= true;
+            }
         }
+        if (!acierto){
+            if (comprobarDerrota()){
+                return;
+            }
+        }
+        comprobarVictoria();
+    }else{
+        return;
     }
-    comprobarVictoria();
 }
 function comprobarDerrota(){
     intentos-=1;
@@ -137,9 +154,9 @@ pincel.lineTo(220,30);
 pincel.moveTo(220,30);
 pincel.lineTo(220,45);
 pincel.stroke();
+const pattern = new RegExp('^[A-Z]+$', 'i');
 var botonJugar = document.querySelector("#boton-nuevoJuego");
 botonJugar.addEventListener("click",function(){
-    
     eliminarLineasPalabra();
     empezarJuego();
 });
@@ -148,10 +165,11 @@ botonRendirse.addEventListener("click",function(){
     rendirse();
 });
 var avisoFinal = document.querySelector("#avisoMensaje");
-var cuerpo = document.querySelector("body")
+var cuerpo = document.querySelector("body");
+var letrasIntentadas= document.querySelector(".letras-usadas");
 var palabraAleatoria;
 var intentos;
-var listaPalabras= ["hola"];
+var listaPalabras= ["HTML","JAVA","PYTHON","ORACLE","HEADER","FOOTER","MAIN","DOCUMENT","CLASS","FUNCTION"];
 if (localStorage.length > 0){
     añadirPalabra();
 }

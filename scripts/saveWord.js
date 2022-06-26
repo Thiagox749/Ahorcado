@@ -1,13 +1,11 @@
 function guardarPalabra(){
-    let palabraIngresada= document.querySelector("#entrada-palabra").value;
-    localStorage.setItem(palabraIngresada,palabraIngresada);
+    let palabraIngresada= document.querySelector("#entrada-palabra");
+    localStorage.setItem(palabraIngresada.value,palabraIngresada.value);
+    palabraIngresada.value = "";
+    alert("La palabra ingresada ha sido guardada con exito!");
 }
-function validarPalabra(){
-    if (!pattern.test(input.value)){
-        botonGuardar.disabled = true;
-    }else{
-        botonGuardar.disabled =false;
-    }
+function validarEntrada(entrada){
+    return (!pattern.test(entrada));
 }
 
 var botonGuardar = document.querySelector("#boton-guardar");
@@ -20,7 +18,11 @@ var input = document.querySelector("#entrada-palabra");
 input.addEventListener("input",function(){
     if (input.value.length >=2 && input.value.length <=8){
         botonGuardar.disabled = false;
-        validarPalabra();
+        if(validarEntrada(input.value)){
+            botonGuardar.disabled = true;
+        }else{
+            botonGuardar.disabled = false;
+        }
     }else{
         botonGuardar.disabled = true;
     }

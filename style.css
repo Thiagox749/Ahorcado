@@ -2,7 +2,6 @@ body{
     background-color: #E5E5E5
 }
 header{
-    border: red solid;
     padding: 5px;
     overflow: hidden;
 }
@@ -15,8 +14,7 @@ header img{
     margin: 0 200px;
 }
 .conteiner-medio{
-    border: solid pink;
-    height: 600px;
+    height: 40em;
 }
 .titulo{
     margin: 0;
@@ -55,7 +53,6 @@ header img{
 footer{
     text-align: center;
     padding: 15px;
-    border: solid black;
 }
 #entrada-palabra{
     position: relative;
@@ -98,19 +95,15 @@ footer{
 .dibujo{
     height: 60%;
     width: 35%;
-    border: solid blue;
     display: block;
     margin: 0 auto;
 }
 .mensajeAviso{
     float:left;
-    border: black solid;
 }
 .palabra-oculta{
-    height: 15%;
-    border: solid darkgreen;
+    height: 10%;
     text-align: center;
-    margin: auto;
 }
 .letra{
     display: inline-block;
@@ -129,8 +122,15 @@ footer{
     top: 55px;
 }
 .letras-usadas{
-    border: solid brown;
-    height: 21.5%;
+    height: 8%;
+    color: blue;
+    font-size: 2em;
+    text-align: center;
+    letter-spacing: 1em;
+    padding-top: 1em;
+}
+.opciones{
+    height: 18%;
     display: flex;
     align-items: center;
 }
@@ -140,7 +140,6 @@ footer{
     font-size: 18px;
     margin: 0 auto 0 34.5%;
 }
-
 #boton-desistir{
     height: 30%;
     width: 15%;
