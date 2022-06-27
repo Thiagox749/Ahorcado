@@ -17,7 +17,7 @@ header img{
 .titulo{
     margin: 0 auto;
     text-align: center;
-    font-size: 3em;
+    font-size: 2.3em;
     width: 30%;
 }
 .conteiner-medio{
@@ -30,7 +30,7 @@ header img{
     width: 20%;
     height: 20%;
     margin: 0 auto;
-    font-size: 18px;
+    font-size: 2em;
 }
 .boton-secundario{
     display: block;
@@ -39,7 +39,7 @@ header img{
     width: 20%;
     height: 20%;
     margin: 0 auto;
-    font-size: 18px;
+    font-size: 2em;
 }
 .boton{
     border-radius: 24px;
@@ -56,6 +56,7 @@ header img{
 footer{
     text-align: center;
     padding: 15px;
+    font-size: 1.1em;
 }
 #entrada-palabra{
     position: relative;
